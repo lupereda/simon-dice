@@ -1,0 +1,75 @@
+body{
+    background-color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+h1{
+    font-size: 48px;
+    margin-top: 50px;
+    animation: titleFadeIn 2s forwards;
+}
+
+#game-container{
+    display: grid;
+    grid-template-columns: repeat(2,200px);
+    grid-template-rows: repeat(2,200px);
+    gap: 20px;
+    justify-content: center;
+    margin-top: 50px,auto;
+}
+.color-button{
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    cursor: pointer;
+    opacity: 0.8;
+    animation: buttonIdle 2s infinite;
+}
+#green{
+    background-color: green;
+}
+#red{
+    background-color: red;
+}       
+#yellow{
+    background-color: yellow;
+}       
+#blue{
+    background-color: blue;
+}   
+#start-button{
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: lavender;
+    color: black;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 24px;
+    animation: buttonFadeIn 1s forwards;
+}
+#start-button:hover{
+    background-color: lightblue;
+}
+@keyframes flashSequence{
+    0% {opacity: 1; transform: scale(1);}
+    50% {opacity: 1; transform: scale(1.2);}
+    100% {opacity: 1; transform: scale(1);}
+}
+@keyframes flashClick{
+    0% {opacity: 1}
+    50% {opacity: 0.6;}
+    100% {opacity: 1;}
+}
+.sequence-active{
+    animation: flashSequence 0.6s;
+}
+ .click-active{
+    animation: flashClick 0.3s;
+}
+
+body.error{
+    animation: errorShake 0.5s;
+}
