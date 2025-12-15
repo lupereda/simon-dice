@@ -65,3 +65,39 @@ function resetGame() {
     level = 0;
     isPlayerTurn = false;
 }
+
+//funcion para manejar la respuesta del usuario
+function handlePlayerInput(color) {
+    if (!isPlayerTurn) return; //si no es el turno del jugador, no hago nada
+    flashButtonClick(color);
+    userSequence.push(color);
+    const currentStep = userSequence.length - 1;
+    //verifico si el color seleccionado es correcto
+    if (userSequence[currentStep] !== sequence[currentStep]) {
+    document.body.classList.add('game-over');
+    setTimeout(() => {
+        document.body.classList.remove('game-over');
+        resetGame();
+    }, 500);
+    } else {
+    if (userSequence.length === sequence.length) {
+        isPlayerTurn = false;
+        setTimeout(() => {
+            nextLevel();
+        }, 1000);
+    }
+}
+}
+
+colorButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        const color = e.target.id;
+        handlePlayerInput(color);
+    });
+});
+
+//boton de comenzar el juego
+function startGame() {
+    resetGame();
+    nextLevel();
+}
