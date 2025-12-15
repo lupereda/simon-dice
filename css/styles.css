@@ -53,6 +53,7 @@ h1{
 #start-button:hover{
     background-color: lightblue;
 }
+/*para la secuencia de lucezs*/
 @keyframes flashSequence{
     0% {opacity: 1; transform: scale(1);}
     50% {opacity: 1; transform: scale(1.2);}
@@ -62,6 +63,18 @@ h1{
     0% {opacity: 1}
     50% {opacity: 0.6;}
     100% {opacity: 1;}
+}
+@keyframes buttonIdle {
+    0%, 100% {opacity: 0.8;}
+    50% {opacity: 1;}
+    
+}
+@keyframes errorShake {
+    
+    0%, 100% {transform: translateX(0);}
+    25% {transform: translateX(-10px);}
+    50% {transform: translateX(10px);}
+    75% {transform: translateX(-10px);}
 }
 .sequence-active{
     animation: flashSequence 0.6s;
